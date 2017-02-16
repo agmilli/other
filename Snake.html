@@ -1,0 +1,48 @@
+	</div>
+</div>
+<script>
+	var main=document.getElementById('main');
+	var tan=document.getElementById('tan');
+	var head=document.getElementById('head');
+	var tan0=tan.getElementsByTagName('div');
+	var inst=document.getElementById("inst");
+	var fen=document.getElementById('fen');
+	console.log(head.offsetWidth)
+    var x0=0;
+    var y0=0;
+    var n1=1;
+	var n2=1;
+	var n3=0;
+	var timer;
+	var k=0;
+	food();
+	function food(){
+		
+		// for(var v=0;v<(main.offsetWidth-20);v++){
+		// 	var x=Math.floor(Math.random()*(main.offsetWidth-20));
+		// 	var w=[x];console.log(v,w)}
+		var x=Math.floor(Math.random()*(main.offsetWidth-20));
+		var y=Math.floor(Math.random()*(main.offsetHeight-20));
+		inst.style.left=(x-x%20)+"px";
+		inst.style.top=(y-y%20)+"px";
+	}
+	window.onkeydown=function(event){
+		var oEvent=event||window.Event;
+		if(oEvent.keyCode==39){
+			n1++;
+			if(n1==1){
+				clearInterval(timer);		
+				timer=setInterval(right_r,100);
+				n2=0;n3=0;
+				//pz();
+			}	
+		}
+		else if(oEvent.keyCode==37){
+			n1++;
+			if(n1==1){
+				clearInterval(timer);
+				timer=setInterval(left_l,100);
+				n2=0;n3=0;	
+				//pz();
+			}
+		}
